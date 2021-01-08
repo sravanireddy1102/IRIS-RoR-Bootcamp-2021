@@ -1,3 +1,4 @@
+
 # Fizz Buzz is a word game for children to teach them about division.
 #
 # We will use it to learn about transforming traditional C-like for
@@ -36,6 +37,20 @@
 #
 # We will raise an `ArgumentError` exception to let the caller know that
 # their function arguments were incorrect.
+
 def fizz_buzz(n:, x: 3, y: 5)
-  raise NotImplementedError # TODO
+  if (x<=0) || (y<=0) || (n<0)
+    raise ArgumentError
+  end
+  result =
+    (1..n).map do |i|
+        case
+        when i % x == 0 && i%y == 0 then "FizzBuzz"
+        when i % x == 0 then "Fizz"
+        when i % y == 0 then "Buzz"
+        else i.to_s
+        end
+     end
+  return result
 end
+#puts fizz_buzz(n: 5, y: 0)
